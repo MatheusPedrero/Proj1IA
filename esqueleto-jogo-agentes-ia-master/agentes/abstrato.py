@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+
 class AgenteAbstrato(ABC):
     '''
     Classe abstrata de agentes artificiais racionais.
@@ -24,3 +25,17 @@ def construir_agente(*args, **kwargs):
     """
     from agentes.humano import AgentePrepostoESHumano
     return AgentePrepostoESHumano()
+
+while True:
+        resp = input('1 -> Agente humano.'+"\n"+ 
+                     '2 -> Agente BFS.'+"\n"+
+                     '3 -> Agente DFS.'+"\n"+
+                     '4 -> Agente DFS limitado.'+"\n"+
+                     '5 -> Agente DFS com aprofundamento Iterativo.'+"\n"+
+                     '6 -> Busca gulosa.'+"\n"+
+                     '7 -> Busca A-Estrela'+"\n"
+                    )
+        if resp == '1':
+            return AgentePrepostoESHumano()
+        elif resp == '2':
+            return AgenteBFS()    
