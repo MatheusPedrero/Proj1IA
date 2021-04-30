@@ -29,13 +29,13 @@ def construir_agente(*args, **kwargs):
 while True:
         resp = input('1 -> Agente humano.'+"\n"+ 
                      '2 -> Agente BFS.'+"\n"+
-                     '3 -> Agente DFS.'+"\n"+
-                     '4 -> Agente DFS limitado.'+"\n"+
-                     '5 -> Agente DFS com aprofundamento Iterativo.'+"\n"+
-                     '6 -> Busca gulosa.'+"\n"+
-                     '7 -> Busca A-Estrela'+"\n"
+                     '3 -> Agente DFS.'+"\n"
                     )
         if resp == '1':
             return AgentePrepostoESHumano()
         elif resp == '2':
-            return AgenteBFS()    
+            return BFS()
+        elif resp == '3':
+            return DFS()   
+          else:
+            print("\n"+'Opção inválida, digite a opção correta!'+"\n")       
