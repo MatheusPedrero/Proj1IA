@@ -3,19 +3,17 @@ from abc import ABC, abstractmethod
 class AbstractRegrasJogo(ABC):
     def init(self) -> None:
         super().init()
-        mapa_labirinto = { 
-                [ ['+','+','+','+','+','+','+','+','+','+','+','+'],
-                  ['+',' ',' ',' ',' ',' ',' ',' ','+',' ',' ','+'],
-                  ['+',' ','+','+',' ','+','+',' ','+',' ','+','+'],
-                  [' ',' ','+','+',' ','+','+',' ','+',' ','+','+'],
-                  ['+','+','+','+',' ','+','+',' ','+',' ','+','+'],
-                  ['+',' ',' ',' ',' ','+','+',' ',' ',' ',' ','+'],
-                  ['+','+','+','+',' ','+','+','+','+','+',' ','+'],
-                  ['+',' ',' ',' ',' ','+',' ',' ',' ','+',' ','+'],
-                  ['+',' ','+','+','+','+','+','+',' ',' ',' ','+'],
-                  ['+',' ',' ',' ',' ',' ',' ','+',' ','+','+','+'],
-                  ['+','+','+','+','+','+','+','+',' ','+','+','+']]
-            }
+        mapa_labirinto = { [0, 1, 2],
+                           [3, 4, 5],
+                           [6, 7, 8], }
+'''
+  0  |  1     2
+             --- 
+  3     4  |  5
+ ---  
+  6     7     8
+Ir do 0 ao 8 sem bater nas paredes
+'''
 
         self.labirinto = mapa_labirinto
         self.id_personagens = {Personagens.JOGADOR: 0}
@@ -28,9 +26,9 @@ class AbstractRegrasJogo(ABC):
     
     @abstractmethod
     def isFim(self,linha,coluna):
-        return(linha == 0 or
+        return(linha == 3 or
              linha == self.linhas-1 or
-             coluna == 0 or
+             coluna == 3 or
              coluna == self.parede_adjacente-1 )
 
     @abstractmethod
@@ -73,10 +71,9 @@ class AbstractRegrasJogo(ABC):
         return
     
     @abstractmethod
-    def terminarJogo(self):
-        """ Faz procedimentos de fim de jogo, como mostrar placar final,
-        gravar resultados, etc...
-        """
+    def avaliaJogo(self):
+        fa(s) = 0
+        isObjetivo(s) = true
         return
 
 def construir_jogo(*args,**kwargs):
